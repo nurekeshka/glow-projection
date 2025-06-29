@@ -1,0 +1,1 @@
+/Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser --app="http://localhost:4200"
