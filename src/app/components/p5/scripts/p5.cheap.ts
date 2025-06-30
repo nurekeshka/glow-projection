@@ -1,5 +1,7 @@
 import p5 from "p5";
 
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export function cheapSketch(parent: HTMLDivElement) {
 	return (s: p5) => {
 		let particles: Particle[] = [];
@@ -8,11 +10,13 @@ export function cheapSketch(parent: HTMLDivElement) {
 		const PARTICLE_LIFE = 7;
 		const BRANCH_AGE = 4;
 
-		s.setup = () => {
+		s.setup = async () => {
 			const ref = s.select("#palm");
-			s.createCanvas(ref?.width - 2, ref?.height - 6).parent(
+			s.createCanvas(ref?.width - 2, ref?.height + 200).parent(
 				new p5.Element(parent),
 			);
+
+			await delay(3000);
 			s.background(255);
 			s.noStroke();
 

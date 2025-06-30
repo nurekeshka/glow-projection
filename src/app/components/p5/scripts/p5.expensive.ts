@@ -1,5 +1,7 @@
 import p5 from "p5";
 
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export function expensiveSketch(parent: HTMLDivElement) {
 	return (s: p5) => {
 		const particles: Particle[] = [];
@@ -7,11 +9,14 @@ export function expensiveSketch(parent: HTMLDivElement) {
 		const MAX_PARTICLES = 150;
 		const TARGET_ORIGINS = 3;
 
-		s.setup = () => {
+		s.setup = async () => {
+			s.fullscreen();
 			const ref = s.select("#palm");
-			s.createCanvas(ref?.width, ref?.height - 6).parent(
+			s.createCanvas(ref?.width, ref?.height + 200).parent(
 				new p5.Element(parent),
 			);
+
+			await delay(3000);
 			s.colorMode(s.HSL, 360, 100, 100, 255);
 			s.background(0, 0, 0);
 			s.noStroke();
@@ -79,6 +84,10 @@ export function expensiveSketch(parent: HTMLDivElement) {
 					particles.splice(i, 1);
 				}
 			}
+		};
+
+		s.mousePressed = () => {
+			s.fullscreen(!s.fullscreen());
 		};
 
 		class Particle {

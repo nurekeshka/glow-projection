@@ -1,1 +1,6 @@
-<video autoplay class="rounded" [src]="video()"></video>
+@if (show()) {
+<video autoplay loop class="rounded w-200px fade-in-image " [src]="video()"></video>
+}
+@else {
+<div class="w-200px"></div>
+}
