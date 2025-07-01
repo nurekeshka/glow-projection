@@ -7,7 +7,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 	selector: "app-promo",
 	templateUrl: "./promo.component.html",
 	styleUrl: "./promo.component.scss",
-	host: { class: "mt-auto h-50" },
+	host: { class: "mb-auto mt-auto" },
 })
 export class PromoComponent implements OnInit {
 	type = input.required<VideoType>();
