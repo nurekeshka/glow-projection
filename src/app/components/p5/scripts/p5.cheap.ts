@@ -12,7 +12,7 @@ export function cheapSketch(parent: HTMLDivElement) {
 
 		s.setup = async () => {
 			const ref = s.select("#palm");
-			s.createCanvas(ref?.width - 2, ref?.height + 200).parent(
+			s.createCanvas(ref?.width - 50, ref?.height + 200).parent(
 				new p5.Element(parent),
 			);
 

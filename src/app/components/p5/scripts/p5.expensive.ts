@@ -12,7 +12,7 @@ export function expensiveSketch(parent: HTMLDivElement) {
 		s.setup = async () => {
 			s.fullscreen();
 			const ref = s.select("#palm");
-			s.createCanvas(ref?.width, ref?.height + 200).parent(
+			s.createCanvas(ref?.width - 50, ref?.height + 200).parent(
 				new p5.Element(parent),
 			);
 
